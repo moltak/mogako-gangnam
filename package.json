@@ -1,0 +1,23 @@
+{
+  "name": "mogakko-gangnam",
+  "version": "1.0.0",
+  "description": "모각코 강남 - 모여서 각자 코딩하는 모임 웹사이트",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "coding",
+    "meetup",
+    "gangnam",
+    "mogakko",
+    "static-site"
+  ],
+  "author": "모각코 강남",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
