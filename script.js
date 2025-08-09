@@ -79,17 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification('이메일 클라이언트가 열렸습니다. 이메일을 보내주세요!', 'success');
     };
 
-    // Header scroll effect
+    // Header scroll effect (cozy theme)
     const header = document.querySelector('.header');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 247, 237, 0.98)'; // cream
+                header.style.boxShadow = '0 2px 20px rgba(139, 94, 60, 0.20)'; // warm shadow
+            } else {
+                header.style.background = 'rgba(255, 247, 237, 0.92)';
+                header.style.boxShadow = '0 2px 20px rgba(139, 94, 60, 0.12)';
+            }
+        });
+    }
 
     // Intersection Observer for animations
     const observerOptions = {
@@ -107,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.about-card, .detail-item, .venue-info, .contact-info');
+    const animateElements = document.querySelectorAll('.cozy-card, .about-card, .detail-item, .venue-info, .contact-info');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';

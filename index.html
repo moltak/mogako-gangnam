@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모각코 강남 - 모여서 각자 코딩</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -13,12 +13,20 @@
                 extend: {
                     fontFamily: {
                         'korean': ['Noto Sans KR', 'sans-serif'],
+                        'display': ['Jua', 'sans-serif'],
+                        'body': ['Gowun Dodum', 'Noto Sans KR', 'sans-serif'],
                     },
                     colors: {
-                        'primary': '#0f172a',
-                        'primary-dark': '#020617',
-                        'accent': '#334155',
-                        'muted': '#64748b',
+                        'primary': '#8B5E3C',
+                        'primary-dark': '#6B4226',
+                        'cream': '#FFF7ED',
+                        'peach': '#FFE4D6',
+                        'rose': '#FFE4E6',
+                        'sage': '#E8F3ED',
+                        'sky': '#EAF4FF',
+                        'wood': '#DCC1A1',
+                        'accent': '#A97155',
+                        'muted': '#8C745B',
                     }
                 }
             }
@@ -41,14 +49,51 @@
             @apply border border-slate-200 bg-transparent hover:bg-slate-100 hover:text-slate-900;
             @apply h-10 px-4 py-2;
         }
+        /* cozy theme helpers */
+        .wood-sign {
+            background: linear-gradient(180deg, #FDE68A 0%, #FCD34D 100%);
+            color: #6B4226;
+            padding: 0.2rem 0.75rem;
+            border-radius: 0.75rem;
+            border: 2px solid #EAB308;
+            box-shadow: 0 4px 0 #D97706, 0 8px 16px rgba(107,66,38,0.15);
+            display: inline-block;
+        }
+        .cozy-card {
+            background: rgba(255, 247, 237, 0.85); /* cream */
+            border: 1px solid #FDE68A;
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(139, 94, 60, 0.08);
+            backdrop-filter: blur(2px);
+            transition: transform .15s ease, box-shadow .2s ease;
+        }
+        .cozy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(139, 94, 60, 0.12);
+        }
+        .btn-cozy {
+            background: #8B5E3C;
+            color: #FFF7ED;
+            border-radius: 9999px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(139,94,60,0.25);
+            transition: transform .1s ease, box-shadow .2s ease;
+        }
+        .btn-cozy:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 28px rgba(139,94,60,0.3);
+        }
     </style>
 </head>
-<body class="font-korean bg-gray-50">
+<body class="font-body bg-cream">
     <!-- Mobile Header -->
-    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 shadow-sm">
+    <header class="header fixed top-0 w-full bg-cream/90 backdrop-blur-md z-50 shadow-sm border-b border-amber-100">
         <nav class="px-4 py-3">
             <div class="flex items-center justify-between">
-                <h1 class="text-xl font-bold text-primary">모각코 강남</h1>
+                <h1 class="text-xl md:text-2xl font-extrabold text-primary font-display">
+                    <span class="wood-sign">모각코 강남</span>
+                </h1>
                 <button id="mobileMenuBtn" class="md:hidden p-2">
                     <i class="fas fa-bars text-gray-600"></i>
                 </button>
@@ -71,39 +116,47 @@
     </header>
 
     <!-- Hero Section - Mobile First -->
-    <section class="pt-20 pb-12 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen flex items-center relative overflow-hidden">
+    <section class="pt-24 pb-16 px-4 bg-gradient-to-br from-peach via-cream to-rose text-primary min-h-screen flex items-center relative overflow-hidden">
         <!-- Background Pattern -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)] opacity-20"></div>
-        <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_50%,transparent_75%)] bg-[length:60px_60px]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,94,60,0.08),transparent_50%)] opacity-30"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(107,66,38,0.05)_50%,transparent_75%)] bg-[length:60px_60px]"></div>
         <div class="max-w-8xl mx-auto relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <!-- Content -->
                 <div class="flex-3 lg:flex-[2] text-center lg:text-left">
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-primary">
                         모각코 강남
                     </h1>
-                    <p class="text-2xl md:text-3xl font-light mb-8 opacity-90">
+                    <p class="text-2xl md:text-3xl font-medium mb-8 text-amber-800/90">
                         모여서 각자 코딩
                     </p>
-                    <p class="text-lg md:text-xl mb-12 opacity-90 leading-relaxed">
+                    <p class="text-lg md:text-xl mb-12 text-primary/80 leading-relaxed">
                         강남역 근처 예쁜 공간에서 함께 모여<br class="hidden sm:block">
                         각자의 프로젝트를 진행해요.<br>
                         공간과 저녁 식사를 제공합니다!
                     </p>
 
                 </div>
+                <!-- Image (attached) -->
+                <div class="flex-2 lg:flex-[1.5] w-full lg:w-auto mt-6 lg:mt-0">
+                    <div class="relative mx-auto">
+                        <img src="images/hero-poster.jpg" alt="모각코 포스터" class="w-full max-w-[520px] rounded-2xl shadow-2xl border-4 border-wood/70 object-cover">
+                        <span class="hidden lg:block absolute -top-3 -left-3 w-8 h-8 rounded-full bg-peach shadow" aria-hidden="true"></span>
+                        <span class="hidden lg:block absolute -bottom-4 -right-4 w-10 h-10 rounded-full bg-rose shadow" aria-hidden="true"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 px-4 bg-white">
+    <section id="about" class="py-16 px-4 bg-cream">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
                 모각코란?
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <div class="p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
                     <i class="fas fa-users text-4xl text-primary mb-4"></i>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">모여서</h3>
                     <p class="text-gray-600 leading-relaxed">
@@ -111,7 +164,7 @@
                         코딩의 즐거움을 나눠요
                     </p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <div class="p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
                     <i class="fas fa-laptop-code text-4xl text-primary mb-4"></i>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">각자</h3>
                     <p class="text-gray-600 leading-relaxed">
@@ -119,7 +172,7 @@
                         싶은 것을 자유롭게 진행해요
                     </p>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
+                <div class="p-6 rounded-xl text-center hover:shadow-lg transition-shadow">
                     <i class="fas fa-code text-4xl text-primary mb-4"></i>
                     <h3 class="text-xl font-semibold mb-3 text-gray-800">코딩</h3>
                     <p class="text-gray-600 leading-relaxed">
@@ -132,13 +185,13 @@
     </section>
 
     <!-- Details Section -->
-    <section id="details" class="py-16 px-4 bg-gray-50">
+    <section id="details" class="py-16 px-4 bg-cream">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
                 상세 정보
             </h2>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
-                <div class="text-center p-4 md:p-6">
+                <div class="text-center p-4 md:p-6 hover:shadow-lg transition-shadow" >
                     <i class="fas fa-calendar-alt text-3xl md:text-4xl text-primary mb-3"></i>
                     <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-800">일정</h3>
                     <p class="text-sm md:text-base text-gray-600">
@@ -146,14 +199,14 @@
                         오후 6시 - 10시
                     </p>
                 </div>
-                <div class="text-center p-4 md:p-6">
+                <div class="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                     <i class="fas fa-users text-3xl md:text-4xl text-primary mb-3"></i>
                     <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-800">인원</h3>
                     <p class="text-sm md:text-base text-gray-600">
                         최대 5명<br>
                     </p>
                 </div>
-                <div class="text-center p-4 md:p-6">
+                <div class="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                     <i class="fas fa-won-sign text-3xl md:text-4xl text-primary mb-3"></i>
                     <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-800">참가비</h3>
                     <p class="text-sm md:text-base text-gray-600">
@@ -161,7 +214,7 @@
                         (공간 + 저녁식사 포함)
                     </p>
                 </div>
-                <div class="text-center p-4 md:p-6">
+                <div class="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                     <i class="fas fa-clock text-3xl md:text-4xl text-primary mb-3"></i>
                     <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-800">예약 마감</h3>
                     <p class="text-sm md:text-base text-gray-600">
@@ -171,7 +224,7 @@
                 </div>
             </div>
             
-            <div class="bg-blue-50 p-6 md:p-8 rounded-xl max-w-2xl mx-auto">
+            <div class="cozy-card p-6 md:p-8 max-w-2xl mx-auto">
                 <h3 class="text-xl md:text-2xl font-semibold mb-4 text-center text-gray-800">
                     포함 사항
                 </h3>
@@ -198,7 +251,7 @@
     </section>
 
     <!-- Venue Section -->
-    <section id="venue" class="py-16 px-4 bg-white">
+    <section id="venue" class="py-16 px-4 bg-cream">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
                 장소
@@ -212,7 +265,7 @@
                         </h3>
                         <p class="flex items-center text-gray-600 text-lg mb-6">
                             <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
-                            강남역 근처 (상세 주소는 참가 확정 후 안내)
+                            강남역 4번출구 100미터 (네이버맵 선샤이닝)
                         </p>
                     </div>
                     <div>
@@ -270,16 +323,16 @@
     </section>
 
     <!-- Participation CTA Section -->
-    <section class="py-16 px-4 bg-slate-900 text-white">
+    <section class="py-16 px-4 bg-gradient-to-r from-peach to-rose text-primary">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">
                 참여하고 싶으신가요?
             </h2>
-            <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+            <p class="text-lg md:text-xl mb-8 leading-relaxed">
                 매주 수요일 오후 6-10시, 강남역 근처에서 함께 코딩해요!<br>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="https://m.booking.naver.com/booking/12/bizes/1374056/items/6978196?area=ple&lang=ko&startDateTime=2025-08-07T00%3A00%3A00%2B09%3A00&theme=place" target="_blank" class="btn-secondary bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 text-lg font-medium">
+                <a href="https://m.booking.naver.com/booking/12/bizes/1374056/items/6978196?area=ple&lang=ko&startDateTime=2025-08-07T00%3A00%3A00%2B09%3A00&theme=place" target="_blank" class="btn-cozy text-lg">
                     <i class="fas fa-calendar-check mr-2"></i>
                     참여 신청하기
                 </a>
@@ -288,9 +341,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 px-4">
+    <footer class="bg-primary text-cream py-8 px-4">
         <div class="max-w-6xl mx-auto text-center">
-            <p>&copy; 2024 모각코 강남. 함께 코딩해요!</p>
+            <p>&copy; 2025 모각코 강남. 함께 코딩해요!</p>
         </div>
     </footer>
 
